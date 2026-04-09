@@ -9,10 +9,13 @@ import bankRoutes from "./routes/bankRoutes.js";
 connectDB();
 
 const app = express();
-app.use(cors());
+const port = process.env.PORT || 5000;
+app.use(cors({
+  origin: "*"
+}));
 app.use(express.json());
 
 app.use("/api/auth", authRoutes);
 app.use("/api/bank", bankRoutes);
 
-app.listen(5000, () => console.log("Server running"));
+app.listen(port, () => console.log("Server running"));
