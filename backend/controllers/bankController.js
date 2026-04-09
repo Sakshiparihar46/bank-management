@@ -60,8 +60,8 @@ export const makePayment = async (req, res) => {
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ["card"],
       mode: "payment",
-      success_url: `http://localhost:5173/success?amount=${amt}`,
-      cancel_url: "http://localhost:5173/dashboard",
+      success_url: `https://bank-management-ten.vercel.app/success?amount=${amt}`,
+      cancel_url: "https://bank-management-ten.vercel.app/dashboard",
       line_items: [
         {
           price_data: {
